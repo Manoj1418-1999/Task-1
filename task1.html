@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="task1.css" type="text/css">
+    <title></title>
+</head>
+
+<body>
+    <!-- background chnager -->
+    <div id="color">
+        <span class="btn" id="white" onclick="changeBG('white')"></span>
+        <span class="btn" id="black" onclick="changeBG('black')"></span>
+        <span class="btn" id="voilet" onclick="changeBG('yellow')"></span>
+        <span class="btn" id="aqua" onclick="changeBG('aqua')"></span>
+    </div>
+
+    <div id="container">
+        <label for="text" class="label h" id="text1">ENTER COUNTRY/CITY NAME</label> <br>
+
+        <input type="text" id="input" placeholder="SELECT COUNTRY" list="SEARCH" autocomplete="address-level1" required class="label"><br>
+        <input type="submit" class="label" id="sub" value="SEARCH">
+
+        <!-- input detailing -->
+        <datalist id="SEARCH"> 
+            <option value="NEW YORK "></option>
+            <option value="America "></option>
+            <option value="INDIA "></option>
+            <option value="DELHI "></option>
+            <option value="MUMBAI "></option>
+            <option value="LUCKNOW "></option>
+            <option value="HYDERABAD "></option>
+            <option value="CHINA "></option>
+            <option value="CANADA "></option>
+            <option value="FRANCE "></option>
+        </datalist>
+
+
+        <div id="tem-div">
+
+            <span class="tem">Temperature : <p id="temp">     </p></span>
+            <span class="tem"> Pressure : <p id="pre">     </p></span>
+            <span class="tem"> Humidity : <p id="hum">     </p></span>
+            <span class="tem"> Visibilty : <p id="vis">    </p></span>
+
+
+
+
+        </div>
+        <script>
+            let tem = document.getElementById("temp");
+            let pre = document.getElementById("pre");
+            let hum = document.getElementById("hum");
+            let vis = document.getElementById("vis");
+
+
+            const input = document.getElementById("input");
+
+            const submit = document.getElementById("sub");
+
+
+
+            // window.addEventListener("load", () => {
+            //     let long;
+            //     let lat;
+            //     if (navigator.geolocation) {
+            //         navigator.geolocation.getCurrentPosition((position) => {
+
+
+
+            //             long = position.coords.longitude;
+            //             lat = position.coords.latitude;
+            //             const proxy = "https:github.com/Rob--W/cors-anywhere/";
+
+
+            //             const api = `${proxy}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=e838640741e8181aa7117e89c6d7639a`
+            //         })
+
+            //         fetch(api).then((response) => {
+            //                 return response.json();
+            //             })
+            //             .then(data => {
+            //                 const {
+            //                     name
+            //                 } = data;
+            //                 const {
+            //                     feel_like
+            //                 } = data.main;
+            //                 const {
+            //                     id,
+            //                     main
+            //                 } = data.weather[0];
+
+            //                 loc.textContent = name;
+            //                 climate.textContent = main;
+            //                 temvalue.textContent = Math.round(feel_like - 273);
+            //             })
+
+            //     }
+            // })
+
+            let add;
+            submit.addEventListener("click", function() {
+                fetch("https://api.openweathermap.org/data/2.5/weather?q=" + input.value + "&appid=e838640741e8181aa7117e89c6d7639a")
+
+                .then(Response => Response.json())
+                    .then(data => {
+                        nameValue = data['name'];
+                        var ntem = data['main']['temp'];
+                        var nhum = data['main']['humidity'];
+                        var npre = data['main']['pressure'];
+                        var nvis = data['visibility']
+                        tem.innerHTML = ntem;
+                        hum.innerHTML = nhum;
+                        pre.innerHTML = npre;
+                        vis.innerHTML = nvis;
+                        console.log(data);
+
+
+                    })
+
+                .catch(error => alert("wrong city name !"))
+
+            });
+
+
+
+            let h = document.getElementsByClassName("h")
+
+            function changeBG(color) {
+                document.body.style.background = color;
+                if (color == 'black') {
+                    for (let ele of h) {
+                        ele.style.color = "white";
+                    };
+                } else {
+                    for (let ele of h) {
+                        ele.style.color = "black";
+                    };
+                }
+            }
+        </script>
+</body>
+
+</html>
+<!-- ) -->

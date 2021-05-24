@@ -1,0 +1,125 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* body */
+
+body {
+    padding: 26px;
+}
+
+
+/* background */
+
+.btn {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: solid gray;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#white {
+    background-color: white;
+}
+
+#black {
+    background-color: black;
+}
+
+#voilet {
+    background-color: yellow;
+}
+
+#aqua {
+    background-color: aqua;
+}
+
+#color {
+    text-align: right;
+    margin-right: 30px;
+}
+
+
+/* container start */
+
+#container {
+    justify-content: center;
+    width: 53%;
+    padding-left: 138px;
+    padding-top: 65px;
+    border: 3px solid black;
+    padding-bottom: 30px;
+    margin-left: 287px;
+}
+
+.label {
+    padding: 10px;
+    margin: 14px;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#sub {
+    margin-left: 89px;
+    font-weight: bold;
+}
+
+#text1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: -4px;
+}
+
+#input:hover {
+    background-color: aquamarine;
+}
+
+#input {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: rgb(240, 113, 113);
+}
+
+#sub {
+    background-color: dimgrey;
+}
+
+#sub:hover {
+    background-color: rgb(160, 115, 197);
+}
+
+#app-container {
+    margin-left: 550px;
+}
+
+#tem-div {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 350px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: cornflowerblue;
+}
+
+.tem {
+    padding: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+    margin-left: 3px;
+}
+
+p {
+    margin-left: 10px;
+}
